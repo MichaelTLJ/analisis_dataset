@@ -1,0 +1,40 @@
+# Datos originales pesados
+data/
+*.fits
+*.fits.gz
+
+# Resultados generados por el analisis/dashboard
+output/
+
+# Cache y bytecode de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Configuracion local y secretos
+.env
+.env.*
+!.env.example
+
+# Notebooks y checkpoints locales
+.ipynb_checkpoints/
+
+# Logs y temporales
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+~$*
+
+# Sistema operativo / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDSS - Mapa Celeste 3D</title>
+  <link rel="stylesheet" href="assets/embedding.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">SDSS DR17</p>
+      <h1>Mapa celeste 3D</h1>
+    </div>
+    <section class="stats" aria-label="Resumen de la visualización">
+      <article>
+        <span>Objetos</span>
+        <strong id="pointCount">0</strong>
+      </article>
+      <article>
+        <span>Profundidad</span>
+        <strong>Redshift</strong>
+      </article>
+      <article>
+        <span>Forma</span>
+        <strong>Morfología</strong>
+      </article>
+    </section>
+  </header>
+
+  <main class="workspace">
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>Clases</h2>
+        <div id="classFilters" class="filter-stack"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Buscar por posición</h2>
+        <div class="search-grid">
+          <label>
+            RA min
+            <input id="raMin" type="number" step="0.01" placeholder="0.0" />
+          </label>
+          <label>
+            RA max
+            <input id="raMax" type="number" step="0.01" placeholder="360.0" />
+          </label>
+          <label>
+            DEC min
+            <input id="decMin" type="number" step="0.01" placeholder="-90.0" />
+          </label>
+          <label>
+            DEC max
+            <input id="decMax" type="number" step="0.01" placeholder="90.0" />
+          </label>
+          <div class="search-actions">
+            <button id="applyFilter" type="button">Aplicar filtro</button>
+            <button id="clearFilter" type="button">Borrar filtro</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Objeto seleccionado</h2>
+        <div id="recordPanel" class="record-empty">
+          Selecciona una estrella, galaxia o quásar.
+        </div>
+      </section>
+    </aside>
+
+    <section class="map-area" aria-label="Mapa celeste 3D con ascensión recta y declinación">
+      <div class="toolbar">
+        <div>
+          <h2 id="plotTitle">Ascensión recta / Declinación</h2>
+          <p id="projectionMethod"></p>
+        </div>
+        <button id="resetZoom" type="button">Limpiar selección</button>
+      </div>
+      <svg id="embeddingPlot" role="img" aria-label="Mapa 3D de objetos SDSS"></svg>
+    </section>
+
+    <aside class="vector-panel">
+      <section class="panel">
+        <h2>Parámetros de forma</h2>
+        <div id="shapePanel" class="vector-grid"></div>
+      </section>
+      <section class="panel">
+        <h2>Características principales</h2>
+        <div id="rawVector" class="vector-grid"></div>
+      </section>
+    </aside>
+  </main>
+
+  <div id="tooltip" class="tooltip"></div>
+  <script>
+    window.SDSS_DATA = __SDSS_PAYLOAD__;
+  </script>
+  <script src="assets/embedding.js"></script>
+</body>
+</html>
